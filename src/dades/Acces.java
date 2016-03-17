@@ -1,3 +1,5 @@
+package dades;
+
 /**
  * Created by Aaron Castells on 16/03/2016.
  */
@@ -6,18 +8,11 @@ public class Acces {
 
     /*Funció que retorna strings d'una posició de una array*/
 
-	String retornaString(String[] array, int x){
-		return array[x];
-	}
-	String retornaString(String[][] array, int x, int y){
-		return array[x][y];
-	}
-
-	void addString(String[] array, int x,String text){
+	public void addString(String[] array, int x,String text){
 		array[x] = text;
 	}
 
-	void addString(String[][] array, int x, int y,String text){
+	public void addString(String[][] array, int x, int y,String text){
 		array[x][y] = text;
 	}
 	int lastPos(String[] array){
@@ -33,7 +28,7 @@ public class Acces {
 	*       -2: El equip està ple.
 	*       1: Equip amb places disponibles.
 	* */
-	int controlEquip(String x){
+	public int controlEquip(String x){
 		final int LLOCS = 5;
 		int coincidencies = 0; //Variable per contar les coincidències del equip del jugador amb les plaçes
 		boolean equipExistent = false;
@@ -67,14 +62,14 @@ public class Acces {
 			return 1;
 		}
 	}
-	void afegirCiclista(){
+	public void afegirCiclista(){
 		dades.indexCiclistes++;
 	}
-	int numCiclistes(){
+	public int numCiclistes(){
 		return dades.indexCiclistes;
 	}
 
-	String toString(String[] array){
+	public String toString(String[] array){
 		String cadena = "";
 		for(int i = 0;i < array.length; i++){
 			cadena += "#"+(i+1)+"\t"+array[i]+"\n";
@@ -82,11 +77,22 @@ public class Acces {
 		return cadena;
 	}
 
-	String toString(String[][] array){
+	public String CiclistesToString(){
 		String cadena = "";
 		for(int i = 0;i < numCiclistes(); i++){
-			cadena += "#"+(i+1)+"\t"+array[i][0]+"\t"+array[i][1]+"\t"+array[i][2]+"\t"+array[i][3]+"\t"+"\n";
+			cadena += "#"+(i+1)+"\t"+dades.Ciclistes[i][0]+"\t"+dades.Ciclistes[i][1]+"\t"+dades.Ciclistes[i][2]+"\t"+dades.Ciclistes[i][3]+"\t"+"\n";
 		}
 		return cadena;
 	}
+
+	/*Funcions per retornar dades*/
+	public String CiclistesGet(int x, int y){
+		return dades.Ciclistes[x][y];
+	}
+
+	public void CiclistesPut(int x, int y,String text){
+		dades.Ciclistes[x][y] = text;
+	}
+
+	public int ciclistesCount = dades.indexCiclistes;
 }

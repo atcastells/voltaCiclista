@@ -1,3 +1,5 @@
+import dades.Acces;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -5,11 +7,10 @@ import java.util.Scanner;
  * Created by Aaron Castells on 16/03/2016.
  */
 public class Biblioteca {
-	Acces programa = new Acces();
 
 	void funcioMenu(String[] menu){
 		for(int i = 0; i < menu.length; i++){
-			imprimir("#"+(i+1)+"\t"+programa.retornaString(menu,i)+"\n");
+			imprimir("#"+(i+1)+"\t"+menu[i]+"\n");
 		}
 	}
 
@@ -37,56 +38,8 @@ public class Biblioteca {
 		return newString;
 	}
 
-	/*
-	Funció que realitza el procés d'inscripció de ciclistes
-	Valors de retorn:
-		-1: Error
-		1: Correcte
-	 */
-	int inscripcioCiclistes(){
-		imprimir("Introdueix el codi d'equip on vols inscriure el ciclista:");
-		String equipCiclista = readString();
-		if(programa.controlEquip(equipCiclista) == -1){
-			imprimir("El equip introduït no existeix\n");
-			return -1;
-		}
-		if(programa.controlEquip(equipCiclista) == -2){
-			imprimir("El equip introduït està ple\n");
-			return -1;
-		}
-		else {
-			if (programa.numCiclistes() >= 0 && programa.numCiclistes() < 45) {
-				imprimir("Introdueix el dni del ciclista: ");
-				String dni = readString();
-				for(int i = 0; i < programa.numCiclistes();i++){
-					if(programa.retornaString(programa.dades.Ciclistes,i,1).equalsIgnoreCase(dni)){
-						imprimir("Aquest dni ja pertany a un ciclista");
-					}
-				}
-                /*Afegim el DNI al ciclista*/
-				programa.addString(programa.dades.Ciclistes,programa.numCiclistes(),0,dni);
-                /*Afegim el nom al ciclista*/
-				imprimir("Introdueix un nom per al ciclista: ");
-				String nom = controlString(3);
-				programa.addString(programa.dades.Ciclistes,programa.numCiclistes(),1,nom);
-				imprimir("el nom es"+programa.retornaString(programa.dades.Ciclistes,programa.numCiclistes(),1)+"\n");
-                /*Afegim la data de naixement al ciclista*/
-				imprimir("Introdueix una data de naixement per al ciclista:\n");
-				programa.addString(programa.dades.Ciclistes,programa.numCiclistes(),2,funcioData());
-                /*Afegim dorsal*/
-				programa.addString(programa.dades.Ciclistes,programa.numCiclistes(),3,funcioDorsal(programa.retornaString(programa.dades.Ciclistes,programa.numCiclistes(),1),(programa.numCiclistes()+1),equipCiclista));
-				programa.afegirCiclista();
-				return 1;
-			}
-			else {
-				imprimir("No es poden apuntar mes ciclistes");
-				return -1;
-			}
-		}
-	}
-
 	String funcioData(){
-		int dia = readInt("Dia: (xx)");
+		int dia = readInt("Dia: (xx): ");
 		if(dia > 31){
 			imprimir("Introdueix el nº de dia correctament:\n");
 			funcioData();
@@ -96,7 +49,7 @@ public class Biblioteca {
 			imprimir("Introdueix el nº de més correctament\n");
 			funcioData();
 		}
-		int any = readInt("Any (xxxx)");
+		int any = readInt("Any (xxxx): ");
 		if(any < 1900 && (any - 2016) < 16){
 			imprimir("Introdueix el nº de any correctament\n");
 			funcioData();
