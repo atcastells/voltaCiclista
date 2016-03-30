@@ -24,6 +24,7 @@ public class Principal {
 				case 1: //Inscripció de ciclistes
 					while(controlMenuCiclistes < menuGestioCiclistes.length){
 						gui.funcioMenu(menuGestioCiclistes);
+						gui.imprimir("Num de ciclistes:"+acces.ciclistesCount+"\n");
 						controlMenuCiclistes = gui.readInt("Introdueix una opció: ");
 						switch (controlMenuCiclistes){
 							case 1:
@@ -84,10 +85,16 @@ public class Principal {
 						controlMenuCompeticio = gui.readInt("Introdueix una opció: ");
 						switch (controlMenuCompeticio){
 							case 1:
+								gui.imprimir("Selecciona el ciclista:\n");
+								for(int i = 0;i < acces.ciclistesCount;i++){
+									gui.imprimir(i+"\t"+acces.CiclistesGet(i,1)+"\n");
+								}
 								break;
 							case 2:
 								break;
 							case 3:
+								break;
+							case 4:
 								break;
 						}
 					}
@@ -102,6 +109,6 @@ public class Principal {
 
 	String[] menu = {"Gestió de inscripció de ciclistes","Gestió de la competició","Sortir"};
 	String[] menuGestioCiclistes = {"Inscriure","Llistar","Tornar"};
-	String[] menuCompeticio = {"Temps etapes", "Informe de guanyadors", "Llistat de remuneracions","Tornar"};
+	String[] menuCompeticio = {"Enregistrar temps","Temps etapes", "Informe de guanyadors", "Llistat de remuneracions","Tornar"};
 
 }

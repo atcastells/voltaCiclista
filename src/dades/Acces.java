@@ -63,7 +63,7 @@ public class Acces {
 		}
 	}
 	public void afegirCiclista(){
-		dades.indexCiclistes++;
+		dades.indexCiclistes =+ dades.indexCiclistes +1;
 	}
 	public int numCiclistes(){
 		return dades.indexCiclistes;

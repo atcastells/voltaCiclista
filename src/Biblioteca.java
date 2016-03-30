@@ -42,17 +42,17 @@ public class Biblioteca {
 		int dia = readInt("Dia: (xx): ");
 		if(dia > 31){
 			imprimir("Introdueix el nº de dia correctament:\n");
-			funcioData();
+			return funcioData();
 		}
 		int mes = readInt("Mes (xx):");
 		if(mes>12){
 			imprimir("Introdueix el nº de més correctament\n");
-			funcioData();
+			return funcioData();
 		}
 		int any = readInt("Any (xxxx): ");
 		if(any < 1900 && (any - 2016) < 16){
 			imprimir("Introdueix el nº de any correctament\n");
-			funcioData();
+			return funcioData();
 		}
 		return dia+"/"+mes+"/"+any;
 	}
