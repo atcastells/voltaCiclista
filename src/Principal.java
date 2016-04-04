@@ -77,6 +77,9 @@ public class Principal {
 								}
 								break;
 						}
+						Scanner sc = new Scanner(System.in);
+						System.out.println("\nPrem enter per continuar... ");
+						sc.nextLine();
 					}
 					break;
 				case 2:
@@ -118,13 +121,15 @@ public class Principal {
 							case 4:
 								break;
 						}
+						Scanner sc = new Scanner(System.in);
+						System.out.println("\nPrem enter per continuar... ");
+						sc.nextLine();
 					}
 					break;
 			}
 			Scanner sc = new Scanner(System.in);
 			System.out.println("\nPrem enter per continuar... ");
 			sc.nextLine();
-			gui.imprimir("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
 	}
 
