@@ -4,7 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Created by Aaron Castells on 16/03/2016.
+ *  Classe d'interacció amb l'usuari.
+ *  Sortida de dades i entrada de dades.
  */
 public class Biblioteca {
 

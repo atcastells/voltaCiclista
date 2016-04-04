@@ -1,7 +1,7 @@
 package dades;
 
 /**
- * Created by Aaron Castells on 16/03/2016.
+ * Classe on es guarda la informació del programa
  */
 public class Informacio {
 

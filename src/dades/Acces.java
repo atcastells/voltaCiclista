@@ -1,7 +1,7 @@
 package dades;
 
 /**
- * Created by Aaron Castells on 16/03/2016.
+ * Classe on s'accedeix desde el programa principal a la informació enmagatzemada.
  */
 public class Acces {
 	Informacio dades = new Informacio();
@@ -44,7 +44,7 @@ public class Acces {
 
 			for (int i = 0; i < numCiclistes(); i++) {
 				String comparar = ""+dades.Ciclistes[i][3].charAt(dades.Ciclistes[i][3].length() - 3)+dades.Ciclistes[i][3].charAt(dades.Ciclistes[i][3].length() - 2)+dades.Ciclistes[i][3].charAt(dades.Ciclistes[i][3].length() - 1);
-				System.out.print("Comparant "+comparar+" amb "+x+" que es el equip del corredor "+i);
+				//System.out.print("Comparant "+comparar+" amb "+x+" que es el equip del corredor "+i);
 				if (comparar.equalsIgnoreCase(x)) {
 					System.out.print("Coincidencia");
 					coincidencies++;
@@ -63,10 +63,17 @@ public class Acces {
 		}
 	}
 	public void afegirCiclista(){
-		dades.indexCiclistes =+ dades.indexCiclistes +1;
+		dades.indexCiclistes++;
 	}
 	public int numCiclistes(){
 		return dades.indexCiclistes;
+	}
+	public int numEtapes(){
+		return dades.etapes.length;
+	}
+
+	public int numEtapes2d(){
+		return dades.etapes[1].length;
 	}
 
 	public String toString(String[] array){
@@ -94,5 +101,11 @@ public class Acces {
 		dades.Ciclistes[x][y] = text;
 	}
 
-	public int ciclistesCount = dades.indexCiclistes;
+	public String EtapesGet(int x, int y){
+		return dades.etapes[x][y];
+	}
+
+	public void tempsEtapesSet(int x, int y,int z,String text){
+		dades.tempsEtapes[x][y][z] = text;
+	}
 }
